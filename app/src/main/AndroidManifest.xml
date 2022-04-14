@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Exchange">
         <activity
+            android:name=".CurrenciesActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegistActivity"
             android:exported="false" />
         <activity

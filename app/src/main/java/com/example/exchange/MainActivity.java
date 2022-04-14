@@ -3,7 +3,9 @@ package com.example.exchange;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.SharedMemory;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -30,5 +32,18 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RegistActivity.class);
 
         startActivity(intent);
+    }
+
+    public void anonLogin(View view) {
+        Log.i("MSG", "Anonymous login");
+    }
+
+    public void googLogin(View view) {
+        Log.i("MSG", "Google login");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 }

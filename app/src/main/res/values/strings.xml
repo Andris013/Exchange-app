@@ -8,4 +8,6 @@
     <string name="user_name">Felhasználónév</string>
     <string name="pass_again">Jelszó újra</string>
     <string name="cancel">Mégse</string>
+    <string name="anonLogin">Bejelentkezés vendégként</string>
+    <string name="googLogin">Bejelentkezés Google-al</string>
 </resources>
