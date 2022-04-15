@@ -50,6 +50,7 @@ public class RegistActivity extends AppCompatActivity {
 
         if (!password.equals(passwordAgain)) {
             Log.e("MSG", "Nem egyenlő a jelszó és a megerősítése.");
+            Toast.makeText(RegistActivity.this, "Nem egyenlő a két jelszó!", Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -57,11 +58,10 @@ public class RegistActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
-                    Log.d("MSG", "User created successfully");
                     startCurrencies();
+                    finish();
                 } else {
-                    Log.d("MSG", "User was't created successfully:", task.getException());
-                    Toast.makeText(RegistActivity.this, "User was't created successfully:", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegistActivity.this, "Regisztráció sikertelen! ", Toast.LENGTH_LONG).show();
                 }
             }
         });
