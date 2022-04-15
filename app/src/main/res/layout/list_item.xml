@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/currencyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Valuta neve"
+            android:padding="8dp">
+        </TextView>
+        <TextView
+            android:id="@+id/currencyRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Valuta árfolyama"
+            android:layout_below="@+id/currencyName"
+            tools:ignore="UnknownId">
+
+        </TextView>
+
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>

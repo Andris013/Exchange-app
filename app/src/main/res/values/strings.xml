@@ -10,4 +10,5 @@
     <string name="cancel">Mégse</string>
     <string name="anonLogin">Bejelentkezés vendégként</string>
     <string name="googLogin">Bejelentkezés Google-al</string>
+    <string name="forint_arfolyamok">Forint árfolyamok</string>
 </resources>
