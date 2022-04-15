@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MyCurrencyAdapter extends RecyclerView.Adapter<MyCurrencyAdapter.ViewHolder> {
+public class MyCurrencyAdapter extends RecyclerView.Adapter<MyCurrencyAdapter.ViewHolder> implements Filterable {
     private ArrayList<MyCurrency> mCurrencyItemsData;
     private ArrayList<MyCurrency> mCurrencyItemsDataAll;
     private Context mcontext;
@@ -42,16 +44,59 @@ public class MyCurrencyAdapter extends RecyclerView.Adapter<MyCurrencyAdapter.Vi
         return mCurrencyItemsData.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+    @Override
+    public Filter getFilter() {
+        return currencyFilter;
+    }
 
+    private Filter currencyFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            ArrayList<MyCurrency> filteredList = new ArrayList<>();
+            FilterResults results = new FilterResults();
+
+            if(charSequence == null || charSequence.length() == 0){
+                results.count = mCurrencyItemsDataAll.size();
+                results.values = mCurrencyItemsDataAll;
+            }else{
+                String filterPattern = charSequence.toString().toLowerCase().trim();
+
+                for (MyCurrency curr: mCurrencyItemsDataAll){
+                    if(curr.getName().toLowerCase().contains(filterPattern)){
+                        filteredList.add(curr);
+                    }
+                }
+                results.count = filteredList.size();
+                results.values = filteredList;
+            }
+
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            mCurrencyItemsData = (ArrayList) filterResults.values;
+            notifyDataSetChanged();
+
+        }
+    };
+
+    class ViewHolder extends RecyclerView.ViewHolder{
         private TextView mNameText;
         private TextView mRateText;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            mNameText = itemView.findViewById(R.id.currencyName);
+            mRateText = itemView.findViewById(R.id.currencyRate);
         }
 
         public void bindTo(MyCurrency currentItem) {
+            String rate = Float.toString(currentItem.getRate());
+            mNameText.setText(currentItem.getName());
+            mRateText.setText(rate);
         }
     }
 }
