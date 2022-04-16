@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
@@ -37,6 +39,12 @@ public class MyCurrencyAdapter extends RecyclerView.Adapter<MyCurrencyAdapter.Vi
         MyCurrency currentItem = mCurrencyItemsData.get(position);
         
         holder.bindTo(currentItem);
+
+        if(holder.getAdapterPosition() > lastPosition){
+            Animation anim = AnimationUtils.loadAnimation(mcontext,R.anim.in_row);
+            holder.itemView.startAnimation(anim);
+            lastPosition = holder.getAdapterPosition();
+        }
     }
 
     @Override

@@ -3,12 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/galan/AndroidStudioProjects/Exchange-app/app/src/main/res/layout-land/activity_main.xml" value="0.16843033509700175" />
+        <entry key="..\:/Users/galan/AndroidStudioProjects/Exchange-app/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2525" />
+        <entry key="..\:/Users/galan/AndroidStudioProjects/Exchange-app/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.213" />
+        <entry key="..\:/Users/galan/AndroidStudioProjects/Exchange-app/app/src/main/res/drawable/ic_baseline_view_grid.xml" value="0.213" />
+        <entry key="..\:/Users/galan/AndroidStudioProjects/Exchange-app/app/src/main/res/drawable/ic_baseline_view_row.xml" value="0.213" />
+        <entry key="..\:/Users/galan/AndroidStudioProjects/Exchange-app/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2525" />
+        <entry key="..\:/Users/galan/AndroidStudioProjects/Exchange-app/app/src/main/res/layout-land/activity_main.xml" value="0.5" />
         <entry key="..\:/Users/galan/AndroidStudioProjects/Exchange-app/app/src/main/res/layout-land/activity_regist.xml" value="0.33" />
         <entry key="..\:/Users/galan/AndroidStudioProjects/Exchange-app/app/src/main/res/layout/activity_currencies.xml" value="0.25" />
         <entry key="..\:/Users/galan/AndroidStudioProjects/Exchange-app/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/galan/AndroidStudioProjects/Exchange-app/app/src/main/res/layout/activity_regist.xml" value="0.25" />
         <entry key="..\:/Users/galan/AndroidStudioProjects/Exchange-app/app/src/main/res/layout/list_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/galan/AndroidStudioProjects/Exchange-app/app/src/main/res/menu/currency_menu.xml" value="0.33" />
         <entry key="..\:/Users/galan/AndroidStudioProjects/Exchange/app/src/main/res/layout-land/activity_main.xml" value="0.31040564373897706" />
         <entry key="..\:/Users/galan/AndroidStudioProjects/Exchange/app/src/main/res/layout-land/activity_regist.xml" value="0.26102292768959434" />
         <entry key="..\:/Users/galan/AndroidStudioProjects/Exchange/app/src/main/res/layout/activity_main.xml" value="0.25" />

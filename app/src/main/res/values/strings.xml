@@ -11,4 +11,25 @@
     <string name="anonLogin">Bejelentkezés vendégként</string>
     <string name="googLogin">Bejelentkezés Google-al</string>
     <string name="forint_arfolyamok">Forint árfolyamok</string>
+    <string name="keres">Keresés</string>
+
+    <string-array name="currency_name_list">
+        <item>Euro (EUR)</item>
+        <item>Svájci Frank (CHF)</item>
+        <item>Amerikai Dollár (USD)</item>
+        <item>Angol Font (GBP)</item>
+        <item>Japán Yen (JPY)</item>
+        <item>Orosz Rubel (RUB)</item>
+        <item>Román Lej (RON)</item>
+    </string-array>
+
+    <string-array name="currency_rate_list">
+        <item>375.52</item>
+        <item>368.41</item>
+        <item>347.51</item>
+        <item>453.82</item>
+        <item>2.75</item>
+        <item>4.03</item>
+        <item>72.15</item>
+    </string-array>
 </resources>

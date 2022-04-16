@@ -110,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     startCurrencies();
-                    finish();
                 } else {
                     Toast.makeText(MainActivity.this, "Sikertelen bejelentkezés!", Toast.LENGTH_LONG).show();
                 }
