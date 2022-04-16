@@ -85,17 +85,21 @@ public class MainActivity extends AppCompatActivity {
         String emailaddress = email.getText().toString();
         String pass = password.getText().toString();
 
-        mAuth.signInWithEmailAndPassword(emailaddress, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    startCurrencies();
-                    finish();
-                } else {
-                    Toast.makeText(MainActivity.this, "Sikertelen bejelentkezés!\nHelytelen email, vagy jelszó!", Toast.LENGTH_LONG).show();
+        if(emailaddress.equals("") || pass.equals("")){
+            Toast.makeText(MainActivity.this, "Mezők kitöltése közelező!", Toast.LENGTH_LONG).show();
+        }else {
+            mAuth.signInWithEmailAndPassword(emailaddress, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        startCurrencies();
+                        finish();
+                    } else {
+                        Toast.makeText(MainActivity.this, "Sikertelen bejelentkezés!\nHelytelen email, vagy jelszó!", Toast.LENGTH_LONG).show();
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
     public void openRegister(View view) {

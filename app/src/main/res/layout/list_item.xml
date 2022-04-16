@@ -2,13 +2,12 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/lightred">
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/lightred"
+        android:background="@color/teal_1"
         android:layout_margin="10dp">
 
         <TextView
@@ -16,7 +15,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Valuta neve"
-            android:padding="8dp">
+            android:padding="8dp"
+            android:textStyle="bold"
+            android:textColor="@color/black">
         </TextView>
         <TextView
             android:id="@+id/currencyRate"
@@ -25,7 +26,9 @@
             android:padding="8dp"
             android:text="Valuta árfolyama"
             android:layout_below="@+id/currencyName"
-            tools:ignore="UnknownId">
+            tools:ignore="UnknownId"
+            android:textStyle="bold"
+            android:textColor="@color/black">
 
         </TextView>
 

@@ -53,19 +53,22 @@ public class RegistActivity extends AppCompatActivity {
             Toast.makeText(RegistActivity.this, "Nem egyenlő a két jelszó!", Toast.LENGTH_LONG).show();
             return;
         }
-
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()) {
-                    startCurrencies();
-                    finish();
-                } else {
-                    Toast.makeText(RegistActivity.this, "Regisztráció sikertelen! ", Toast.LENGTH_LONG).show();
+        if(userName.equals("") || email.equals("") || password.equals("") || passwordAgain.equals("")){
+            Toast.makeText(RegistActivity.this, "Minden mező kitöltése kötelező", Toast.LENGTH_LONG).show();
+        }
+        else {
+            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        startCurrencies();
+                        finish();
+                    } else {
+                        Toast.makeText(RegistActivity.this, "Regisztráció sikertelen! ", Toast.LENGTH_LONG).show();
+                    }
                 }
-            }
-        });
-
+            });
+        }
 
     }
 

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -14,8 +15,13 @@ import android.widget.SearchView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.ktx.Firebase;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class CurrenciesActivity extends AppCompatActivity {
     private static final String TAG = CurrenciesActivity.class.getName();
@@ -27,6 +33,9 @@ public class CurrenciesActivity extends AppCompatActivity {
     private int gridNumber = 1;
 
     private boolean viewRow = true;
+
+    private FirebaseFirestore mFirestore;
+    private CollectionReference mItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +50,7 @@ public class CurrenciesActivity extends AppCompatActivity {
             Log.d(TAG, "Not Auth user");
         }
 
+
         mRecyclerView = findViewById(R.id.recycleview);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, gridNumber));
         mitemList = new ArrayList<>();
@@ -49,7 +59,29 @@ public class CurrenciesActivity extends AppCompatActivity {
 
         mRecyclerView.setAdapter(mAdapter);
 
-        initializeData();
+
+        mFirestore = FirebaseFirestore.getInstance();
+        mItems = mFirestore.collection("Items");
+
+        queryData();
+
+    }
+
+    private void queryData() {
+        mitemList.clear();
+        mItems.orderBy("name").get().addOnSuccessListener(queryDocumentSnapshots -> {
+            for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
+                MyCurrency currency = doc.toObject(MyCurrency.class);
+                mitemList.add(currency);
+            }
+
+            if (mitemList.size() == 0) {
+                initializeData();
+                queryData();
+            }
+
+            mAdapter.notifyDataSetChanged();
+        });
     }
 
 
@@ -58,12 +90,10 @@ public class CurrenciesActivity extends AppCompatActivity {
         String[] itemsList = getResources().getStringArray(R.array.currency_name_list);
         String[] itemsRate = getResources().getStringArray(R.array.currency_rate_list);
 
-        mitemList.clear();
-
-        for (int i = 0; i < itemsList.length; i++){
-            mitemList.add(new MyCurrency(itemsList[i], Float.parseFloat(itemsRate[i])));
+        for (int i = 0; i < itemsList.length; i++) {
+            mItems.add(new MyCurrency(itemsList[i], Float.parseFloat(itemsRate[i])));
         }
-        mAdapter.notifyDataSetChanged();
+
     }
 
     @Override
@@ -100,6 +130,8 @@ public class CurrenciesActivity extends AppCompatActivity {
                     changeSpanCount(item, R.drawable.ic_baseline_view_row, 2);
                 }
                 return true;
+            case R.id.database_manipulate:
+                startDataMGMT();
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -111,6 +143,11 @@ public class CurrenciesActivity extends AppCompatActivity {
         item.setIcon(drawableId);
         GridLayoutManager layoutManager = (GridLayoutManager) mRecyclerView.getLayoutManager();
         layoutManager.setSpanCount(spanCount);
+    }
+
+    private void startDataMGMT(){
+        Intent intent = new Intent(this, DataMGMTActivity.class);
+        startActivity(intent);
     }
 
 }

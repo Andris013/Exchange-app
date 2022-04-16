@@ -9,6 +9,9 @@ public class MyCurrency {
         this.rate = rate;
     }
 
+    public MyCurrency() {
+    }
+
     public String getName() {
         return name;
     }

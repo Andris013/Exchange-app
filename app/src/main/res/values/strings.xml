@@ -12,6 +12,9 @@
     <string name="googLogin">Bejelentkezés Google-al</string>
     <string name="forint_arfolyamok">Forint árfolyamok</string>
     <string name="keres">Keresés</string>
+    <string name="insert">Beszúrás</string>
+    <string name="update">Frissítés</string>
+    <string name="delete">Törlés</string>
 
     <string-array name="currency_name_list">
         <item>Euro (EUR)</item>
