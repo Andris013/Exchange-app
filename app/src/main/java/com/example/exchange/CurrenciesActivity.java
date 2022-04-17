@@ -123,6 +123,8 @@ public class CurrenciesActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.logoutButton:
                 FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
                 finish();
                 return true;
             case R.id.view_selector:

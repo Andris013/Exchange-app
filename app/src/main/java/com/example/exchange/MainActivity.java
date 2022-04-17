@@ -136,6 +136,11 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
     private void startCurrencies() {
         Intent intent = new Intent(this, CurrenciesActivity.class);
         startActivity(intent);

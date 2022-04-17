@@ -52,9 +52,9 @@
             android:id="@+id/loginButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:onClick="login"
             android:text="@string/login"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
@@ -64,8 +64,8 @@
             android:layout_height="wrap_content"
             android:onClick="openRegister"
             android:text="@string/registration"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.499"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loginButton"
             tools:ignore="UsingOnClickInXml" />
@@ -74,28 +74,23 @@
             android:id="@+id/anonymousLoginButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="12dp"
             android:onClick="anonLogin"
             android:text="@string/anonLogin"
-            app:layout_constraintEnd_toStartOf="@+id/loginButton"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
+            app:layout_constraintTop_toBottomOf="@+id/registerButton"
             tools:ignore="OnClick,UsingOnClickInXml" />
 
         <Button
             android:id="@+id/googleLoginButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="4dp"
             android:onClick="googLogin"
             android:text="@string/googLogin"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.911"
-            app:layout_constraintStart_toEndOf="@+id/loginButton"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/anonymousLoginButton"
             tools:ignore="UsingOnClickInXml" />
 
     </androidx.constraintlayout.widget.ConstraintLayout></ScrollView>
