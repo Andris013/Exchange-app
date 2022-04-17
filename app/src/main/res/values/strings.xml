@@ -15,15 +15,17 @@
     <string name="insert">Beszúrás</string>
     <string name="update">Frissítés</string>
     <string name="delete">Törlés</string>
+    <string name="valuta_kezeles">Valuták kezelése</string>
+    <string name="arfolyam_forintban">Valuták árfolyama forintban</string>
 
     <string-array name="currency_name_list">
-        <item>Euro (EUR)</item>
-        <item>Svájci Frank (CHF)</item>
-        <item>Amerikai Dollár (USD)</item>
-        <item>Angol Font (GBP)</item>
-        <item>Japán Yen (JPY)</item>
-        <item>Orosz Rubel (RUB)</item>
-        <item>Román Lej (RON)</item>
+        <item>Euro</item>
+        <item>Svájci Frank</item>
+        <item>Amerikai Dollár</item>
+        <item>Angol Font</item>
+        <item>Japán Yen</item>
+        <item>Orosz Rubel</item>
+        <item>Román Lej</item>
     </string-array>
 
     <string-array name="currency_rate_list">

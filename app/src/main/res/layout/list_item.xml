@@ -15,6 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Valuta neve"
+            android:textSize="16sp"
             android:padding="8dp"
             android:textStyle="bold"
             android:textColor="@color/black">
@@ -25,6 +26,7 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:text="Valuta árfolyama"
+            android:textSize="16sp"
             android:layout_below="@+id/currencyName"
             tools:ignore="UnknownId"
             android:textStyle="bold"

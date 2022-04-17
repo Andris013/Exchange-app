@@ -27,4 +27,5 @@ public class MyCurrency {
     public void setRate(float rate) {
         this.rate = rate;
     }
+
 }

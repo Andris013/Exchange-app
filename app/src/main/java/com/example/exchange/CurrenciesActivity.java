@@ -16,6 +16,7 @@ import android.widget.SearchView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.ktx.Firebase;
@@ -63,7 +64,7 @@ public class CurrenciesActivity extends AppCompatActivity {
         mFirestore = FirebaseFirestore.getInstance();
         mItems = mFirestore.collection("Items");
 
-        queryData();
+        //queryData();
 
     }
 
@@ -137,7 +138,6 @@ public class CurrenciesActivity extends AppCompatActivity {
         }
     }
 
-
     private void changeSpanCount(MenuItem item, int drawableId, int spanCount) {
         viewRow = !viewRow;
         item.setIcon(drawableId);
@@ -148,6 +148,12 @@ public class CurrenciesActivity extends AppCompatActivity {
     private void startDataMGMT(){
         Intent intent = new Intent(this, DataMGMTActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        queryData();
     }
 
 }
