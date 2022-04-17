@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.ktx.Firebase;
 
@@ -70,7 +71,7 @@ public class CurrenciesActivity extends AppCompatActivity {
 
     private void queryData() {
         mitemList.clear();
-        mItems.orderBy("name").get().addOnSuccessListener(queryDocumentSnapshots -> {
+        mItems.orderBy("name", Query.Direction.ASCENDING).get().addOnSuccessListener(queryDocumentSnapshots -> {
             for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
                 MyCurrency currency = doc.toObject(MyCurrency.class);
                 mitemList.add(currency);

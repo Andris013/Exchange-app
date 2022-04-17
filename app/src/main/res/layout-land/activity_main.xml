@@ -55,8 +55,8 @@
             android:layout_marginTop="12dp"
             android:onClick="login"
             android:text="@string/login"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
-            tools:layout_editor_absoluteX="287dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
         <Button
             android:id="@+id/registerButton"
@@ -65,9 +65,10 @@
             android:onClick="openRegister"
             android:text="@string/registration"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loginButton"
-            tools:ignore="UsingOnClickInXml"
-            tools:layout_editor_absoluteX="293dp" />
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:id="@+id/anonymousLoginButton"

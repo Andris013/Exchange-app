@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.Locale;
@@ -57,7 +58,7 @@ public class DataMGMTActivity extends AppCompatActivity {
             String name = currName.getText().toString();
             float rate = Float.parseFloat(currRate.getText().toString());
 
-            mItems.orderBy("name").get().addOnSuccessListener(queryDocumentSnapshots -> {
+            mItems.orderBy("name", Query.Direction.ASCENDING).get().addOnSuccessListener(queryDocumentSnapshots -> {
                 for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
                     if(doc.toObject(MyCurrency.class).getName().toLowerCase().equals(name.toLowerCase())){
                         mItems.document(doc.getId()).set(new MyCurrency(doc.toObject(MyCurrency.class).getName(),rate)).addOnSuccessListener(success ->{
@@ -76,7 +77,7 @@ public class DataMGMTActivity extends AppCompatActivity {
         EditText currName = findViewById(R.id.editTextCurrencyNameDB);
         String name = currName.getText().toString();
 
-        mItems.orderBy("name").get().addOnSuccessListener(queryDocumentSnapshots -> {
+        mItems.orderBy("name", Query.Direction.ASCENDING).get().addOnSuccessListener(queryDocumentSnapshots -> {
             for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
                 if(doc.toObject(MyCurrency.class).getName().toLowerCase().equals(name.toLowerCase())){
                     mItems.document(doc.getId()).delete().addOnSuccessListener(success ->{
