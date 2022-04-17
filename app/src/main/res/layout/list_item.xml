@@ -2,35 +2,43 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    card_view:contentPadding="10dp"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardBackgroundColor="@color/grey">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/teal_1"
-        android:layout_margin="10dp">
+        android:background="@color/teal_1">
 
         <TextView
             android:id="@+id/currencyName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Valuta neve"
-            android:textSize="16sp"
             android:padding="8dp"
-            android:textStyle="bold"
-            android:textColor="@color/black">
+            android:text="Valuta neve"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold">
+
         </TextView>
+
         <TextView
             android:id="@+id/currencyRate"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/currencyName"
+            android:layout_marginTop="-2dp"
             android:padding="8dp"
             android:text="Valuta árfolyama"
+            android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="16sp"
-            android:layout_below="@+id/currencyName"
-            tools:ignore="UnknownId"
             android:textStyle="bold"
-            android:textColor="@color/black">
+            tools:ignore="UnknownId">
 
         </TextView>
 
