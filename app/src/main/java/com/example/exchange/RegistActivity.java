@@ -17,7 +17,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RegistActivity extends AppCompatActivity {
-    EditText editTextTextUserName;
     EditText editTextTextEmailAddressReg;
     EditText editTextTextPasswordReg;
     EditText editTextTextPasswordAgain;
@@ -28,7 +27,6 @@ public class RegistActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist);
-        editTextTextUserName = findViewById(R.id.editTextTextUserName);
         editTextTextEmailAddressReg = findViewById(R.id.editTextTextEmailAddressReg);
         editTextTextPasswordReg = findViewById(R.id.editTextTextPasswordReg);
         editTextTextPasswordAgain = findViewById(R.id.editTextTextPasswordAgain);
@@ -43,7 +41,6 @@ public class RegistActivity extends AppCompatActivity {
     }
 
     public void registration(View view) {
-        String userName = editTextTextUserName.getText().toString();
         String email = editTextTextEmailAddressReg.getText().toString();
         String password = editTextTextPasswordReg.getText().toString();
         String passwordAgain = editTextTextPasswordAgain.getText().toString();
@@ -53,7 +50,7 @@ public class RegistActivity extends AppCompatActivity {
             Toast.makeText(RegistActivity.this, "Nem egyenlő a két jelszó!", Toast.LENGTH_LONG).show();
             return;
         }
-        if(userName.equals("") || email.equals("") || password.equals("") || passwordAgain.equals("")){
+        if( email.equals("") || password.equals("") || passwordAgain.equals("")){
             Toast.makeText(RegistActivity.this, "Minden mező kitöltése kötelező", Toast.LENGTH_LONG).show();
         }
         else {
