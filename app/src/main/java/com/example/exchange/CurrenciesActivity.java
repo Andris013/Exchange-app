@@ -46,11 +46,6 @@ public class CurrenciesActivity extends AppCompatActivity {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-        if (user != null) {
-            Log.d(TAG, "Auth user");
-        } else {
-            Log.d(TAG, "Not Auth user");
-        }
 
 
         mRecyclerView = findViewById(R.id.recycleview);
@@ -116,6 +111,9 @@ public class CurrenciesActivity extends AppCompatActivity {
                 return false;
             }
         });
+        if(user.isAnonymous()) {
+            menu.getItem(0).setVisible(false);
+        }
         return true;
     }
 
@@ -135,7 +133,9 @@ public class CurrenciesActivity extends AppCompatActivity {
                 }
                 return true;
             case R.id.database_manipulate:
-                startDataMGMT();
+                if(!user.isAnonymous()) {
+                    startDataMGMT();
+                }
             default:
                 return super.onOptionsItemSelected(item);
         }
