@@ -39,6 +39,8 @@ public class CurrenciesActivity extends AppCompatActivity {
     private FirebaseFirestore mFirestore;
     private CollectionReference mItems;
 
+    private NotificationHandler notiHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +61,8 @@ public class CurrenciesActivity extends AppCompatActivity {
 
         mFirestore = FirebaseFirestore.getInstance();
         mItems = mFirestore.collection("Items");
+
+        notiHandler = new NotificationHandler(this);
 
         //queryData();
 
