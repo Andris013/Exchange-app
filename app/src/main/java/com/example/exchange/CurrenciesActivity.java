@@ -6,8 +6,11 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,13 +44,16 @@ public class CurrenciesActivity extends AppCompatActivity {
 
     private NotificationHandler notiHandler;
 
+    private AlarmManager alarmManager;
+
+    private boolean notifPerm = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currencies);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
-
 
 
         mRecyclerView = findViewById(R.id.recycleview);
@@ -63,8 +69,10 @@ public class CurrenciesActivity extends AppCompatActivity {
         mItems = mFirestore.collection("Items");
 
         notiHandler = new NotificationHandler(this);
-
+        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         //queryData();
+
+        setAlarmManager();
 
     }
 
@@ -115,7 +123,7 @@ public class CurrenciesActivity extends AppCompatActivity {
                 return false;
             }
         });
-        if(user.isAnonymous()) {
+        if (user.isAnonymous()) {
             menu.getItem(0).setVisible(false);
         }
         return true;
@@ -137,9 +145,20 @@ public class CurrenciesActivity extends AppCompatActivity {
                 }
                 return true;
             case R.id.database_manipulate:
-                if(!user.isAnonymous()) {
+                if (!user.isAnonymous()) {
                     startDataMGMT();
                 }
+            case R.id.notification_button:
+                if (notifPerm) {
+                    notifPerm = false;
+                    item.setTitle(R.string.notif_permit);
+                    setAlarmManager();
+                } else if (!notifPerm) {
+                    notifPerm = true;
+                    item.setTitle(R.string.notif_block);
+                    setAlarmManager();
+                }
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -152,7 +171,7 @@ public class CurrenciesActivity extends AppCompatActivity {
         layoutManager.setSpanCount(spanCount);
     }
 
-    private void startDataMGMT(){
+    private void startDataMGMT() {
         Intent intent = new Intent(this, DataMGMTActivity.class);
         startActivity(intent);
     }
@@ -163,4 +182,21 @@ public class CurrenciesActivity extends AppCompatActivity {
         queryData();
     }
 
+    private void setAlarmManager() {
+        long repeatInterval = 60 * 1000;
+        long triggerTime = SystemClock.elapsedRealtime() + repeatInterval;
+        Intent intent = new Intent(this, AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_MUTABLE);
+        if (notifPerm) {
+            alarmManager.setInexactRepeating(
+                    AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                    triggerTime,
+                    repeatInterval,
+                    pendingIntent);
+        }
+        if (!notifPerm) {
+            alarmManager.cancel(pendingIntent);
+            Log.d("MSG", "Értesítés kikapcsolva");
+        }
+    }
 }

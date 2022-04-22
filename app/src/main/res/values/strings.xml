@@ -17,6 +17,8 @@
     <string name="delete">Törlés</string>
     <string name="valuta_kezeles">Valuták kezelése</string>
     <string name="arfolyam_forintban">Valuták árfolyama forintban</string>
+    <string name="notif_block">Értesítések letiltása</string>
+    <string name="notif_permit">Értesítések engedélyezése</string>
 
     <string-array name="currency_name_list">
         <item>Euro</item>
