@@ -29,8 +29,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class CurrenciesActivity extends AppCompatActivity {
-    private static final String TAG = CurrenciesActivity.class.getName();
     private FirebaseUser user;
+
 
     private RecyclerView mRecyclerView;
     private ArrayList<MyCurrency> mitemList;
@@ -183,7 +183,7 @@ public class CurrenciesActivity extends AppCompatActivity {
     }
 
     private void setAlarmManager() {
-        long repeatInterval = 60 * 1000;
+        long repeatInterval = AlarmManager.INTERVAL_HOUR;
         long triggerTime = SystemClock.elapsedRealtime() + repeatInterval;
         Intent intent = new Intent(this, AlarmReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_MUTABLE);
