@@ -46,11 +46,12 @@ public class CurrenciesActivity extends AppCompatActivity {
 
     private AlarmManager alarmManager;
 
-    private boolean notifPerm = false;
+    private boolean notifPerm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        notifPerm = false;
         setContentView(R.layout.activity_currencies);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -148,6 +149,7 @@ public class CurrenciesActivity extends AppCompatActivity {
                 if (!user.isAnonymous()) {
                     startDataMGMT();
                 }
+                return true;
             case R.id.notification_button:
                 if (notifPerm) {
                     notifPerm = false;
@@ -158,6 +160,7 @@ public class CurrenciesActivity extends AppCompatActivity {
                     item.setTitle(R.string.notif_block);
                     setAlarmManager();
                 }
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
