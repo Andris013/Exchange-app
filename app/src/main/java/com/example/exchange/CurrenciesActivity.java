@@ -56,7 +56,6 @@ public class CurrenciesActivity extends AppCompatActivity {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-
         mRecyclerView = findViewById(R.id.recycleview);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, gridNumber));
         mitemList = new ArrayList<>();
@@ -71,6 +70,7 @@ public class CurrenciesActivity extends AppCompatActivity {
 
         notiHandler = new NotificationHandler(this);
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
         //queryData();
 
         setAlarmManager();
@@ -125,7 +125,7 @@ public class CurrenciesActivity extends AppCompatActivity {
             }
         });
         if (user.isAnonymous()) {
-            menu.getItem(0).setVisible(false);
+            menu.getItem(1).setVisible(false);
         }
         return true;
     }
