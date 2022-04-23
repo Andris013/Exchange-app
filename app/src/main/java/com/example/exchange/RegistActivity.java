@@ -40,6 +40,7 @@ public class RegistActivity extends AppCompatActivity {
         finish();
     }
 
+    //Regisztráció
     public void registration(View view) {
         String email = editTextTextEmailAddressReg.getText().toString();
         String password = editTextTextPasswordReg.getText().toString();

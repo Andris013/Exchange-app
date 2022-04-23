@@ -40,10 +40,18 @@ public class MyCurrencyAdapter extends RecyclerView.Adapter<MyCurrencyAdapter.Vi
         
         holder.bindTo(currentItem);
 
+        //2 animáció az elemek megjelenítésére: jobbról, és balról beúszás felváltva
         if(holder.getAdapterPosition() > lastPosition){
-            Animation anim = AnimationUtils.loadAnimation(mcontext,R.anim.in_row);
-            holder.itemView.startAnimation(anim);
-            lastPosition = holder.getAdapterPosition();
+            if(holder.getPosition() % 2 == 0) {
+                Animation anim = AnimationUtils.loadAnimation(mcontext, R.anim.in_row);
+                holder.itemView.startAnimation(anim);
+                lastPosition = holder.getAdapterPosition();
+            }else{
+                Animation anim = AnimationUtils.loadAnimation(mcontext, R.anim.in_row_2);
+                holder.itemView.startAnimation(anim);
+                lastPosition = holder.getAdapterPosition();
+            }
+
         }
     }
 
@@ -57,6 +65,7 @@ public class MyCurrencyAdapter extends RecyclerView.Adapter<MyCurrencyAdapter.Vi
         return currencyFilter;
     }
 
+    //Kereséshez szűrés karaktersorozatra
     private Filter currencyFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {

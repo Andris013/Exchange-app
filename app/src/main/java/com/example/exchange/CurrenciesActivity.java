@@ -77,6 +77,7 @@ public class CurrenciesActivity extends AppCompatActivity {
 
     }
 
+    //Valuták lekérdezése Firestoreból
     private void queryData() {
         mitemList.clear();
         mItems.orderBy("name", Query.Direction.ASCENDING).get().addOnSuccessListener(queryDocumentSnapshots -> {
@@ -106,6 +107,7 @@ public class CurrenciesActivity extends AppCompatActivity {
 
     }
 
+    //Menüszalag létrehozása
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -130,6 +132,7 @@ public class CurrenciesActivity extends AppCompatActivity {
         return true;
     }
 
+    //Menüszalag opcióira rákattintva
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.logoutButton:
@@ -167,6 +170,7 @@ public class CurrenciesActivity extends AppCompatActivity {
         }
     }
 
+    //Elrendezés módosítása
     private void changeSpanCount(MenuItem item, int drawableId, int spanCount) {
         viewRow = !viewRow;
         item.setIcon(drawableId);
@@ -185,6 +189,7 @@ public class CurrenciesActivity extends AppCompatActivity {
         queryData();
     }
 
+    //Notificationök beállítása
     private void setAlarmManager() {
         long repeatInterval = AlarmManager.INTERVAL_HOUR;
         long triggerTime = SystemClock.elapsedRealtime() + repeatInterval;

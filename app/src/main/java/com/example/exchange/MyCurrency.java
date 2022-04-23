@@ -1,5 +1,6 @@
 package com.example.exchange;
 
+//Modell osztály
 public class MyCurrency {
     private String name;
     private float rate;

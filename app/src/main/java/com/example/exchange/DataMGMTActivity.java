@@ -30,6 +30,8 @@ public class DataMGMTActivity extends AppCompatActivity {
 
     }
 
+    //Valuta beszúrása
+    //Note: kötelező a valuta neve, és az árfolyama is
     public void insertData(View view) {
         EditText currName = findViewById(R.id.editTextCurrencyNameDB);
         EditText currRate = findViewById(R.id.editTextCurrencyRateDB);
@@ -48,6 +50,8 @@ public class DataMGMTActivity extends AppCompatActivity {
         }
     }
 
+    //Valuta frissítése
+    //Note: kötelező a valuta neve, és az árfolyam is
     public void updateData(View view) {
         EditText currName = findViewById(R.id.editTextCurrencyNameDB);
         EditText currRate = findViewById(R.id.editTextCurrencyRateDB);
@@ -73,6 +77,8 @@ public class DataMGMTActivity extends AppCompatActivity {
         }
     }
 
+    //Valuta törlése
+    //Note: csak a valuta neve kötelező
     public void deleteData(View view) {
         EditText currName = findViewById(R.id.editTextCurrencyNameDB);
         String name = currName.getText().toString();

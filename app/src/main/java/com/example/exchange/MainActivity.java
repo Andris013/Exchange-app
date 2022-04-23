@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Google bejelentkezés
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential cred = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(cred).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -80,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //Emailes bejelentkezés
     public void login(View view) {
         EditText email = findViewById(R.id.editTextEmail);
         EditText password = findViewById(R.id.editTextPassword);
@@ -104,12 +106,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Regisztráció megnyitása
     public void openRegister(View view) {
         Intent intent = new Intent(this, RegistActivity.class);
 
         startActivity(intent);
     }
 
+    //Bejelentkezés vendégként
     public void anonLogin(View view) {
         mAuth.signInAnonymously().addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
