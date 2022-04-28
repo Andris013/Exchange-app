@@ -11,7 +11,8 @@ I'm assuming te kaptad javításra ezt a projektemet, ezt kicsit szeretném megk
   - Valuták böngészése, árfolyam követése
   - Valuták közötti keresés (***KERESÉS*** ikon)
   - GUI elrendezés változtatása (***ELRENDEZÉS*** ikon)
-  - Értesítések ki/be kapcsolása (óránként kijelzi az Euro áfolyamot, árfolyamos oldalon ***ÉRTESÍTÉSEK LETILTÁSA/ENGEDÉLYEZÉSE*** fül)
+  - Értesítések ki/be kapcsolása (óránként kijelzi az Euro áfolyamot ha az app meg van nyitva/háttérben fut, árfolyamos oldalon ***ÉRTESÍTÉSEK LETILTÁSA/ENGEDÉLYEZÉSE*** fül)
+  - Kijelentkezés (***KIJELENTKEZÉS*** fül)
 - Csak regisztrált + Google fiókos usernek érhető el:
   - Adatbázis manipulálása: törlés, módosítás, hozzáadás (Árfolyamos oldalon ***ADATOK*** fül)
 
